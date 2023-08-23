@@ -17,7 +17,7 @@ router.use((req, res, next) => {
 });
 
 router.get("/profile", isLoggedIn, renderProfile);
-console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=>", renderProfile);
+// console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=>", renderProfile);
 
 router.get("/join", isNotLoggedIn, renderJoin);
 

@@ -1,5 +1,5 @@
 const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+const { Strategy: LocalStrategy } = require("passport-local");
 const bcrypt = require("bcrypt");
 
 const User = require("../models/user");
@@ -13,6 +13,7 @@ module.exports = () => {
         passReqToCallback: false,
       },
       async (email, password, done) => {
+        // done 서버실패 유저성공 로직실패
         try {
           const exUser = await User.findOne({ where: { email } });
           if (exUser) {
